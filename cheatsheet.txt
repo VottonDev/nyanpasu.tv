@@ -1,0 +1,22 @@
+// * *  Nyanpasu.tv Cheatsheet File   * * //
+
+// *** Letters *** //
+
+- PHP -
+
+A = $letters[0]
+C = $letters[1]
+E = $letters[2]
+H = $letters[3]
+M = $letters[4]
+P = $letters[5]
+R = $letters[6]
+SL = $letters[7]
+S = $letters[8]
+
+-------
+
+////////////////////
+
+
+Happy Cheating :)

@@ -1,0 +1,75 @@
+==================================================================
+https://keybase.io/lolihook
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://nyanpasu.tv
+  * I am lolihook (https://keybase.io/lolihook) on keybase.
+  * I have a public key with fingerprint 01C2 D6D4 0478 30BA 4F1C  A45C 4F22 BB63 D5C4 DEF9
+
+To do so, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "eldest_kid": "0101c3a96002b2a4a0c78d77c128fabddde10c224772094778c0715b7da63936227a0a",
+            "fingerprint": "01c2d6d4047830ba4f1ca45c4f22bb63d5c4def9",
+            "host": "keybase.io",
+            "key_id": "4f22bb63d5c4def9",
+            "kid": "0101c3a96002b2a4a0c78d77c128fabddde10c224772094778c0715b7da63936227a0a",
+            "uid": "54d1527ee5b138cac9dee266aee35519",
+            "username": "lolihook"
+        },
+        "revoke": {
+            "sig_ids": [
+                "4ed9aff051bb1d17aba70153355423aef0ad7ce3d061c2829b97de17a5ab8f0a0f"
+            ]
+        },
+        "service": {
+            "hostname": "nyanpasu.tv",
+            "protocol": "https:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1468586063,
+    "expire_in": 157680000,
+    "prev": "f2b206d9cd26772f707f7cc01dead47563e1d560fcddd10d9851a63a887a5ea9",
+    "seqno": 66,
+    "tag": "signature"
+}
+
+which yields the signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v2.0.53
+Comment: https://keybase.io/crypto
+
+yMJ4AnicrZJtaBxFHMYvadKY0EooaJF+CIy0EL2GmX2Z2T1Sm5LSliCobaWGJD3n
+bZMlye55u3dNrEEb6Btt+qbQNtRY0kTbYpooJ4mK2gQPbWv8IAh+SBRKsW1INWBT
+aAri7FG/+dH9MDuz8/x//2efmW9XLotVFF24vHntN0sT80U3Jv/KxHYd+uWlvYD5
+ohsk9oJ2WXjJDiGDMNnuCpAAEEHEdWpjCDWmUYNCTixBCEea5VAmhJAIck0zCNGg
+rUaLQ4JMRgTFuq1jTSMUUhAHjuu1ynQq7XphAcs1gYUBDWLpkFHDQZwaJjccTWMM
+60JNhXRsVdjmB1GFMsdoIGtcX31Ti2TB3n/o/2ffmQLONAQyNSKlyZBuccptIaWG
+MZVSN00U9c0EMu3RTqnUHX6H2+b77aAnDtIy67fLKNfAbVWmA5BoAoYUNnUcaCLG
+kECEMkogMnXFMjSdSgdSQbjUBcQqKEuzmU2UYUJNyiy1CR3QotiqY9blBXiU0uPu
+Xjf1UjTI1IRZZSuV9kOf+x1qoy0MU0EiMhV2pyLlHsmSjxlJ5npCHZGqyMp04Poe
+SCCl5KEbQZGBLdPCEOtxILtSblom3UhhEmxB9UR9ZFYhHZU2xMLmQsMqWodA4hDO
+IRKSCoOYWJdImBg6XB0BgsK2TKQSp5alfk7SKMhAvuH5IIGx8klbFVMF59Ewk5ag
+Z+pqc0msqCK2vLQ4uruxivLKf2/04qmyRyWv7E98+sWl8rq3JnKo8tbzX38/AirQ
+0sqa473Z1tojRzc0n2/p/fDPieRYdc/s/pmZoSY981qVPt82s5rTi7H6P6bnyurd
+1Q2vy/zgqhVbFhaGBuntVW+WngCbehe37hk/fPfq6di7I7VV+bFrZ87WflY31fjU
+0jsvnv7kx4f78p8v7ht2Ln5wp2tH2YPRLw9cernk5prcbvb3TFXjw5adxm/9Jxd2
+Xu5b//vIR6caxgavT/zw/mxd13T//dzTw4M3B6qXTm6avHEvt+3EeNO5j0tfuDL8
+ROmjZV/tiE8dey4f7//1VdGXvDv5wHtvwPzu2dGff/LnDm4/3lmcP1z0TO/b6zY2
+PjmOt/X9A54vZFk=
+=bdRZ
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/lolihook
+
+==================================================================

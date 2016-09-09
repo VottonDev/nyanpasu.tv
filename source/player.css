@@ -1,0 +1,317 @@
+* {-webkit-box-sizing:border-box;-moz-box-sizing:border-box;-ms-box-sizing:border-box;box-sizing:border-box;}
+html, body {margin:0;padding:0;}
+body {font:400 100%/1.5 helvetica, arial, sans-serif;}
+img {height:auto;max-width:100%;width:auto\9;}
+article { margin: 0 auto; max-width: 1000px; padding: 3em 0; }
+
+.responsive-video {
+	margin-top:8%;
+	opacity: 0;
+	position: relative;
+	transition: opacity .2s ease-in-out;
+}
+
+.responsive-video.loaded {
+	opacity: 1;
+}
+
+.responsive-video.loaded video {
+	height: 100%;
+	left: 0;
+	outline: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.responsive-video .controls-wrapper {
+	bottom: 0;
+	cursor: pointer;
+	font-size: 16px;
+	left: 0;
+	overflow: hidden;
+	position: absolute;
+    right: 0;
+	top: 0;
+}
+
+.responsive-video .controls-bottom-tray {
+    align-items: center; 
+	background: rgba(0,0,0,.5);	
+	box-shadow: 0px -1px 5px rgba(255,255,255,.25);
+    bottom: 0;
+    color: #fff;
+	cursor: default;
+	display: flex;
+    font-family: sans-serif;
+	font-weight: 100;
+    left: 0;
+	min-height: .125em;
+    padding: 0;
+	position: absolute;	
+    right: 0;
+	transition: all .15s ease-in-out;
+}
+
+.controls-wrapper:hover .controls-bottom-tray { 
+	min-height: 2.1875em;
+	padding: .5em 0;	
+}
+
+.controls-bottom-tray > * {
+	margin: 0 .75em;
+    min-width: 1em;
+}
+
+.controls-wrapper .play-button {
+	cursor: pointer;
+	left: 50%;
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	transform: translate(-50%,-50%);
+	transition: opacity .3s ease-in-out;
+}
+
+.controls-wrapper:hover .play-button {
+	opacity: 1;
+	animation-name: fade-out;
+    animation-duration: .7s;
+	animation-delay: 2s;
+	animation-timing-function: ease-in-out;
+	animation-fill-mode: forwards;
+}
+
+.controls-wrapper .play-button:before,
+.controls-wrapper .play-button:after {
+	content: "";
+	display: block;
+	width: 0; 
+}
+
+video:not(.playing) ~ .controls-wrapper .play-button:after {
+	border-top: 1.5em solid transparent;
+    border-bottom: 1.5em solid transparent;
+    border-left: 2.625em solid #fff;
+	height: 0; 
+}
+
+video.playing ~ .controls-wrapper .play-button:before,
+video.playing ~ .controls-wrapper .play-button:after {
+	border-left: .625em solid #fff;
+    float: left;
+    height: 3em;
+}
+
+video.playing ~ .controls-wrapper .play-button:before {
+	margin-right: 1.375em;
+}
+
+@keyframes fade-out {
+    from {opacity: 1;}
+    to   {opacity: 0;}
+}
+
+.controls-bottom-tray .track {
+	background: rgba(255,255,255,.5);
+    border-radius: .0625em;
+	cursor: pointer;
+	flex-grow: 1;
+	height: .125em;
+	position: relative;
+	transition: all .15s ease-in-out;
+	width: 50%;
+}
+
+.controls-wrapper:not(:hover) .controls-bottom-tray .track { 
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.controls-bottom-tray:hover .track {
+	height: .375em;
+}
+
+.controls-bottom-tray .track .track-loader-bar,
+.controls-bottom-tray .track .track-bar {
+	border-radius: .0625em;
+	height: 100%;
+	transition: width .3s linear;
+	width: 0;
+}
+
+.controls-bottom-tray .track .track-loader-bar {
+    background: rgba(255,0,0,.3);
+	left: 0;
+	position: absolute;
+	top: 0;
+	z-index: 1;
+}
+
+.controls-bottom-tray .track .track-bar {
+    background: red;
+}
+
+.controls-bottom-tray .track .timer-flag {
+	background: #eee;	
+    bottom: 100%;
+    color: #333;
+	cursor: none;
+	font-size: .625em;
+    line-height: .625em;
+	margin-bottom: 4px;
+	opacity: 0;
+    padding: .5em;
+    position: absolute;
+	transform: translateX(-50%);
+	transition: opacity .15s linear;
+	z-index:10;
+}
+
+.controls-bottom-tray .track:hover .timer-flag {
+	opacity: 1;
+}
+
+.controls-bottom-tray .track .timer-flag:after {	
+	border-left: 4px solid transparent;
+	border-right: 4px solid transparent;
+	border-top: 4px solid #eee;
+	content:"";
+	height: 0;
+	left: 50%;
+	position: absolute;
+	top: 100%;
+	transform: translateX(-50%);
+	width: 0;
+}
+
+.controls-bottom-tray .counter {
+	display: none;
+	font-size: .8125em;
+	min-width: 5.385em;
+}
+
+.controls-wrapper:hover .controls-bottom-tray .counter {
+	display: block;
+}
+
+.controls-bottom-tray .mute-button {
+	cursor: pointer;
+	display: none;
+	position: relative;
+}
+
+.controls-wrapper:hover .controls-bottom-tray .mute-button {
+	display: block;
+}
+
+.controls-bottom-tray .mute-button:before {
+	border-top: .5em solid transparent;
+	border-bottom: .5em solid transparent;	
+	border-right: .875em solid #fff;
+	content:"";
+    display: block;
+	height: 0; 
+}
+
+.controls-bottom-tray .mute-button:after {
+	background: #fff;
+    content: "";
+    display: block;
+    height: .375em;
+    left: 10%;
+    position: absolute;
+    width: .625em;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.controls-bottom-tray .volume-button {
+	display: none;
+	flex-shrink: 0;
+	opacity: 0;
+	position: absolute;
+    transition: opacity .3s ease-in-out;
+}
+
+.controls-wrapper:hover .controls-bottom-tray .volume-button {
+	display: block;
+}
+
+.controls-bottom-tray .volume-button.active {
+	opacity: 1;
+}
+
+.controls-bottom-tray .volume-button input {
+	position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: calc( 200% + 2em );
+}
+
+.controls-wrapper .fullscreen-button {
+	cursor: pointer;
+	display: block;
+	opacity: 0;
+	right: .5rem;
+    top: .5rem;
+	transform: rotate(135deg);
+    transform-origin: 50% 50%;
+	transition: opacity .3s ease-in-out, top .1s linear, right .1s linear;
+}
+
+.controls-wrapper:hover .fullscreen-button {
+	opacity: 1;
+}
+
+.controls-wrapper .fullscreen-button:hover {
+	right: .25rem;
+    top: .25rem;
+}
+
+.controls-wrapper .fullscreen-button,
+.controls-wrapper .fullscreen-button span {
+	position: absolute;
+	width: 1.24em;
+}
+
+.controls-wrapper .fullscreen-button:before,
+.controls-wrapper .fullscreen-button span:before{
+	border-top: .625em solid transparent;
+	border-bottom: .625em solid transparent; 
+	border-right: .625em solid #fff; 
+	content:"";
+	display:block;
+	height: 0;	
+	width: 0; 	
+}
+
+.controls-wrapper .fullscreen-button:after,
+.controls-wrapper .fullscreen-button span:after {
+	background-color: #fff;
+	content:"";
+	display: block;
+	height: .25em;
+	position: absolute;
+	top: 50%;
+	transform: translate(.625em, -50%);
+	transition: width .1s linear;
+	width: 0;
+}
+
+.controls-wrapper .fullscreen-button:hover:after,
+.controls-wrapper .fullscreen-button:hover span:after {
+	width: .625em;
+}
+
+.controls-wrapper .fullscreen-button span {
+	left:0;
+	top: 0;
+	transform: rotate(180deg);
+	transform-origin:50 50%;
+	transition: left .1s linear;
+}
+
+.controls-wrapper .fullscreen-button:hover span {
+	left:100%;
+}

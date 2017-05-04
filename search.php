@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<?php 
+<?php
 require "global.php"; require "connect.php";
 $result = $_POST['search'];
 ?>
@@ -84,15 +84,15 @@ $result = $_POST['search'];
 
 
 
-<?php 
+<?php
 $result2 = '%' . $result . '%';
-    $getsearch = $conn->prepare("SELECT * 
+    $getsearch = $conn->prepare("SELECT *
 FROM series WHERE name LIKE :result
-ORDER BY 'id' ASC 
+ORDER BY 'id' ASC
 LIMIT 10");
     $getsearch->bindParam(":result", $result2);
     $getsearch->execute();
-    while ($gs = $getsearch->fetch(PDO::FETCH_ASSOC)) { 
+    while ($gs = $getsearch->fetch(PDO::FETCH_ASSOC)) {
 ?>
                         <figure class="white">
                             <a>

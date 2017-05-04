@@ -53,7 +53,7 @@
             <a href="about.php"><div class="oldies object">Log In / Sign Up</div></a>
                 <div id="fleche-nav-3"></div>
     		</div>
-    		
+
     		<div id="wrapper-title-4" style="float:right; color:black;">
             <div class="oldies object" style="color:black">Categories</div>
                 <div id="fleche-nav-3"></div>
@@ -99,7 +99,7 @@
 																					<div id="part-info">Action</div>
 													</div>
 												</figure>
-												
+
 												<figure class="white">
 													<a href="shows.php?category=adventure">
 														<img src="./source/images/adventure.jpg" alt="" width="225" height="166">
@@ -125,7 +125,7 @@
 																					<div id="part-info">Harem/Ecchi</div>
 													</div>
 												</figure>
-												
+
 												<figure class="white">
 													<a href="shows.php?category=horror">
 														<img src="./source/images/horror.jpg" alt="" width="225" height="166">
@@ -243,7 +243,7 @@
                             	<div id="part-info">Supernatural</div>
 							</div>
 
-							
+
 
 
 						</figure>
@@ -279,7 +279,7 @@
             <div id="row-2f">
             	<div class="text-row-2f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">How does it work?</span><br>We upload a video to one of our storage servers and then link it to this main site.</div>
             </div>
-            
+
             <div id="row-3f">
             	<div class="text-row-3f"><span style="font-weight:600;font-size:15px;color:#666;line-height:250%;text-transform:uppercase;letter-spacing:1.5px;">Upcoming features</span><br>Bookmarking, user accounts, last watched, a new theme, and many more! Beta updates will be silent, only full releases will be advertised.</div>
 

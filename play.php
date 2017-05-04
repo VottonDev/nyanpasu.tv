@@ -87,9 +87,9 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 <article>
 
 	<video width="400" time="00.0">
-  		<source src="<?php echo $path; ?>"  />	
+  		<source src="<?php echo $path; ?>"  />
 	</video>
-	
+
 </article>
 
 
@@ -144,20 +144,20 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 					doc.webkitExitFullscreen();
 				}
 			}
-		}, 
+		},
 		timeCalc = function(seconds) {
 			seconds = Math.floor(seconds);
 			return (seconds < 10) ? ("0:0" + seconds) : (seconds < 60) ? ('0:' + seconds) : (seconds == 60) ? "1:00" : (( Math.floor(seconds/60)) + ":" + (seconds%60 < 10 ? ("0" + seconds%60) : seconds ));
 		},
 		timerWatch = function(video) {
-			if ( !video.paused ) { 
+			if ( !video.paused ) {
 				var percentage = (video.currentTime / video.duration) * 100;
 
 				video.parentNode.querySelector(".track-bar").style.width = percentage + "%";
-				video.parentNode.querySelector(".counter").innerHTML = 
+				video.parentNode.querySelector(".counter").innerHTML =
 					timeCalc(video.currentTime) + "/" + timeCalc(video.duration);
 
-				window.requestAnimationFrame(function() { 
+				window.requestAnimationFrame(function() {
 					timerWatch(video);
 				});
 			}
@@ -166,20 +166,20 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 			if ( video.paused ) {
 				video.classList.add("playing");
 				video.play();
-				window.requestAnimationFrame(function() { 
+				window.requestAnimationFrame(function() {
 					timerWatch(video);
 				});
-				
+
 				if ( video.preload !== "auto" ) {
 					video.preload = "auto";
 				}
-				
+
 				video.focus();
 
 			} else {
 				video.classList.remove("playing");
 				video.pause();
-				
+
 				//video.blur();
 			}
 		};
@@ -212,12 +212,12 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		wrapper.classList.add("responsive-video");
 		wrapper.appendChild(video);
 		video_old.parentNode.replaceChild(wrapper, video_old);
-		delete video_old;	
-		
+		delete video_old;
+
 		if ( video.autoplay ) {
 			playToggle(video);
-		}	
-		
+		}
+
 		document.addEventListener("keydown", function(evt) {console.log( evt );
 			if ( document.activeElement === video && evt.which === 32 ) {
 				evt.preventDefault();
@@ -226,14 +226,14 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		})
 
 		video.setAttribute("tabindex", 0);
-		
+
 		video.addEventListener("loadeddata", function(evt) {
 			var ratio = (this.clientHeight / this.clientWidth);
 			wrapper.classList.add("loaded");
 			wrapper.style.paddingTop = (ratio * 100) + "%";
-			
+
 			counter.innerHTML = timeCalc(0) + "/" + timeCalc(video.duration);
-			
+
 			if ( skipToTime ) {
 				video.currentTime = skipToTime;
 				trackBar.style.width = (skipToTime/video.duration)*100 + "%";
@@ -241,12 +241,12 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		});
 
 		video.addEventListener("progress", function(evt) {
-			
+
 			if (evt.target.duration) {
 				var loadedProgress;
 					duration = evt.target.duration,
 					buffered = evt.target.buffered;
-				
+
 				if ( duration.length === 0 ) {
 					loadedProgress = 0;
 				} else if ( buffered.length > 0 ) {
@@ -269,7 +269,7 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		muteButton.classList.add("mute-button");
 		fullscreenButton.classList.add("fullscreen-button");
 		controlsBottomTray.classList.add("controls-bottom-tray");
-		
+
 		volumeButton.type = "range";
 
 		track.appendChild( trackLoadedBar );
@@ -284,17 +284,17 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		video.addEventListener("ended", function(evt) {
 			trackBar.style.width = "100%";
 			counter.innerHTML = parseFloat(video.duration);
-		});		
+		});
 
 		track.addEventListener("click", function(evt) {
 			var percentage = (evt.offsetX / track.clientWidth),
 				seek = percentage * video.duration;
-				
+
 			trackBar.style.width = 100 * percentage + "%";
 			counter.innerHTML = Math.floor(seek);
 			video.currentTime = seek;
 		});
-		
+
 		track.addEventListener("mousemove", function(evt) {
 			var percentage = (evt.offsetX / track.clientWidth),
 				seek = percentage * video.duration;
@@ -313,11 +313,11 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 
 		muteButton.addEventListener("dblclick", function() {
 			video.muted = video.muted ? false : true
-		});		
-		
+		});
+
 		muteButton.addEventListener("mouseover", function() {
 			volumeContainer.classList.add("active");
-		});		
+		});
 
 		volumeContainer.addEventListener("mouseout", function() {
 			volumeContainer.classList.remove("active");
@@ -330,12 +330,12 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		controlsWrapper.addEventListener("click", function(evt) {
 			playToggle(video);
 		});
-		
+
 		controlsBottomTray.addEventListener("click", function(evt) { evt.stopPropagation(); });
 
 		// add controls
 		fullscreenButton.appendChild( document.createElement('span') );
-		
+
 		controlsBottomTray.appendChild(track);
 		controlsBottomTray.appendChild(counter);
 		controlsBottomTray.appendChild(muteButton);
@@ -344,7 +344,7 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		controlsWrapper.appendChild(playButton);
 		controlsWrapper.appendChild(controlsBottomTray);
 		controlsWrapper.appendChild(fullscreenButton);
-		
+
 		wrapper.appendChild( controlsWrapper );
 	});
 })(this, this.document);

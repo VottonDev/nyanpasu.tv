@@ -81,13 +81,13 @@
 
 
 
-<?php 
-	$getlatest = $conn->prepare("SELECT * 
-FROM series 
-ORDER BY 'id' ASC 
+<?php
+	$getlatest = $conn->prepare("SELECT *
+FROM series
+ORDER BY 'id' ASC
 LIMIT 20");
 	$getlatest->execute();
-	while ($gl = $getlatest->fetch(PDO::FETCH_ASSOC)) { 
+	while ($gl = $getlatest->fetch(PDO::FETCH_ASSOC)) {
 ?>
 						<figure class="white">
 							<a>

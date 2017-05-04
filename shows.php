@@ -69,7 +69,7 @@
 
 					<section class="work">
 
-<?php 
+<?php
 						require "connect.php";
 					      $category3 = $_GET['category'];
                           $category2 = str_replace("%20", "", $category3);
@@ -79,7 +79,7 @@
 					      $getvars = $conn->prepare("SELECT * FROM series WHERE category=:category");
 					      $getvars->bindParam(":category", $category);
 					      $getvars->execute();
-						  if(!isset($_GET['series'])) { 
+						  if(!isset($_GET['series'])) {
 					      while ($disp = $getvars->fetch(PDO::FETCH_ASSOC)){
 					      $thumb = $disp['thumb'];
 					      $name = $disp['name'];

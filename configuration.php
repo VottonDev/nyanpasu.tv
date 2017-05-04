@@ -16,6 +16,6 @@
  MySQL Information
 ********************/
 $servername = "localhost";
-$username = "xcalibur";
-$password = "zasass11xD";
-$dbname = "nyanpasu";
+$username = "xxx";
+$password = "xxx";
+$dbname = "xxx";

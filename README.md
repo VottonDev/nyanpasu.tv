@@ -1,3 +1,3 @@
 # nyanpasu.tv (Working)
-# (MyStream is better: https://github.com/ZythVX/MyStream)
+# (MyStream (New version): https://github.com/ZythVX/MyStream)
 # DISCONTINUED & UNSUPPORTED

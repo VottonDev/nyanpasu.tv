@@ -121,76 +121,76 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 
 (function(win, doc) {
 
-	var videos = [].slice.apply( doc.querySelectorAll("video") ),
-		toggleFullScreen = function(el) {
-			if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement ) {
-    			if (el.requestFullscreen) {
-					el.requestFullscreen();
-				} else if (el.msRequestFullscreen) {
-					el.msRequestFullscreen();
-				} else if (el.mozRequestFullScreen) {
-					el.mozRequestFullScreen();
-				} else if (el.webkitRequestFullscreen) {
-					el.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
-				}
-			} else {
-				if (doc.exitFullscreen) {
-					doc.exitFullscreen();
-				} else if (doc.msExitFullscreen) {
-					doc.msExitFullscreen();
-				} else if (doc.mozCancelFullScreen) {
-					doc.mozCancelFullScreen();
-				} else if (doc.webkitExitFullscreen) {
-					doc.webkitExitFullscreen();
-				}
-			}
-		},
-		timeCalc = function(seconds) {
-			seconds = Math.floor(seconds);
-			return (seconds < 10) ? ("0:0" + seconds) : (seconds < 60) ? ('0:' + seconds) : (seconds == 60) ? "1:00" : (( Math.floor(seconds/60)) + ":" + (seconds%60 < 10 ? ("0" + seconds%60) : seconds ));
-		},
-		timerWatch = function(video) {
-			if ( !video.paused ) {
-				var percentage = (video.currentTime / video.duration) * 100;
+    const videos = [].slice.apply(doc.querySelectorAll("video")),
+        toggleFullScreen = function (el) {
+            if (!doc.fullscreenElement && !doc.mozFullScreenElement && !doc.webkitFullscreenElement && !doc.msFullscreenElement) {
+                if (doc.documentElement.requestFullscreen) {
+                    doc.documentElement.requestFullscreen();
+                } else if (doc.documentElement.msRequestFullscreen) {
+                    doc.documentElement.msRequestFullscreen();
+                } else if (doc.documentElement.mozRequestFullScreen) {
+                    doc.documentElement.mozRequestFullScreen();
+                } else if (doc.documentElement.webkitRequestFullscreen) {
+                    doc.documentElement.webkitRequestFullscreen(Element.ALLOW_KEYBOARD_INPUT);
+                }
+            } else {
+                if (doc.exitFullscreen) {
+                    doc.exitFullscreen();
+                } else if (doc.msExitFullscreen) {
+                    doc.msExitFullscreen();
+                } else if (doc.mozCancelFullScreen) {
+                    doc.mozCancelFullScreen();
+                } else if (doc.webkitExitFullscreen) {
+                    doc.webkitExitFullscreen();
+                }
+            }
+        };
+    const timeCalc = function (seconds) {
+            seconds = Math.floor(seconds);
+            return (seconds < 10) ? ("0:0" + seconds) : (seconds < 60) ? ('0:' + seconds) : (seconds === 60) ? "1:00" : ((Math.floor(seconds / 60)) + ":" + (seconds % 60 < 10 ? ("0" + seconds % 60) : seconds));
+        },
+        timerWatch = function (video) {
+            if (!video.paused) {
+                const percentage = (video.currentTime / video.duration) * 100;
 
-				video.parentNode.querySelector(".track-bar").style.width = percentage + "%";
-				video.parentNode.querySelector(".counter").innerHTML =
-					timeCalc(video.currentTime) + "/" + timeCalc(video.duration);
+                video.parentNode.querySelector(".track-bar").style.width = percentage + "%";
+                video.parentNode.querySelector(".counter").innerHTML =
+                    timeCalc(video.currentTime) + "/" + timeCalc(video.duration);
 
-				window.requestAnimationFrame(function() {
-					timerWatch(video);
-				});
-			}
-		},
-		playToggle = function(video) {
-			if ( video.paused ) {
-				video.classList.add("playing");
-				video.play();
-				window.requestAnimationFrame(function() {
-					timerWatch(video);
-				});
+                window.requestAnimationFrame(function () {
+                    timerWatch(video);
+                });
+            }
+        },
+        playToggle = function (video) {
+            if (video.paused) {
+                video.classList.add("playing");
+                video.play();
+                window.requestAnimationFrame(function () {
+                    timerWatch(video);
+                });
 
-				if ( video.preload !== "auto" ) {
-					video.preload = "auto";
-				}
+                if (video.preload !== "auto") {
+                    video.preload = "auto";
+                }
 
-				video.focus();
+                video.focus();
 
-			} else {
-				video.classList.remove("playing");
-				video.pause();
+            } else {
+                video.classList.remove("playing");
+                video.pause();
 
-				//video.blur();
-			}
-		};
+                //video.blur();
+            }
+        };
 
-	videos.forEach(function(video) {
+    videos.forEach(function(video) {
 
 		if ( video.preload === "none" || video.getAttribute("preload") === null ) {
 			video.preload = "metadata";
 		}
 
-		var wrapper = document.createElement("div"),
+		let wrapper = document.createElement("div"),
 			video_old = video,
 			video = video_old.cloneNode(true),
 
@@ -228,8 +228,8 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 		video.setAttribute("tabindex", 0);
 
 		video.addEventListener("loadeddata", function(evt) {
-			var ratio = (this.clientHeight / this.clientWidth);
-			wrapper.classList.add("loaded");
+            const ratio = (this.clientHeight / this.clientWidth);
+            wrapper.classList.add("loaded");
 			wrapper.style.paddingTop = (ratio * 100) + "%";
 
 			counter.innerHTML = timeCalc(0) + "/" + timeCalc(video.duration);
@@ -242,19 +242,21 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 
 		video.addEventListener("progress", function(evt) {
 
-			if (evt.target.duration) {
-				var loadedProgress;
-					duration = evt.target.duration,
-					buffered = evt.target.buffered;
+            let duration;
+            let buffered;
+            if (evt.target.duration) {
+                let loadedProgress;
+                duration = evt.target.duration,
+                    buffered = evt.target.buffered;
 
-				if ( duration.length === 0 ) {
-					loadedProgress = 0;
-				} else if ( buffered.length > 0 ) {
-					loadedProgress = ((buffered.end(buffered.length - 1) > 0 ? buffered.end(buffered.length - 1) : 0) / duration) * 100;
-				}
+                if (duration.length === 0) {
+                    loadedProgress = 0;
+                } else if (buffered.length > 0) {
+                    loadedProgress = ((buffered.end(buffered.length - 1) > 0 ? buffered.end(buffered.length - 1) : 0) / duration) * 100;
+                }
 
-				trackLoadedBar.style.width = loadedProgress + "%";
-			}
+                trackLoadedBar.style.width = loadedProgress + "%";
+            }
 		});
 
 		// add classes to controls

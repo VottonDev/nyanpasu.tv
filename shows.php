@@ -215,15 +215,15 @@ $(document).ready(function() {
 
 /*TRANSITION PAGE*/
 
-var speed = 'slow';
+const speed = 'slow';
 
 $('html, body').hide();
 
 $(document).ready(function() {
     $('html, body').fadeIn(speed, function() {
         $('a[href], button[href]').click(function(event) {
-            var url = $(this).attr('href');
-            if (url.indexOf('#') == 0 || url.indexOf('javascript:') == 0) return;
+            const url = $(this).attr('href');
+            if (url.indexOf('#') === 0 || url.indexOf('javascript:') === 0) return;
             event.preventDefault();
             $('html, body').fadeOut(speed, function() {
                 window.location = url;
@@ -234,8 +234,8 @@ $(document).ready(function() {
 
 /* DISABLE HOVER EFFECT WHILE YOU SCROLL FOR A SMOOTHY NAVIGATION */
 
-var body = document.body,
-	timer;
+let body = document.body,
+    timer;
 
 window.addEventListener('scroll', function() {
 
@@ -250,7 +250,7 @@ window.addEventListener('scroll', function() {
 
 }, false);
 
-  /* BOUTON MENU */
+  /* BUTTON MENU */
 
 $(document).on('touchstart mouseover', '#stripes', function(event){
 
@@ -282,13 +282,13 @@ $(document).on('touchend mouseout', '#stripes', function(event){
 
 /* MENU SIDE OPEN */
 
-var MENUSIDEOPEN = document.getElementById('stripes');
+const MENUSIDEOPEN = document.getElementById('stripes');
 
 MENUSIDEOPEN.addEventListener('click', function() {
 			   $("#main-container-menu").stop().animate({left:'0'},300);
 });
 
-/* BOUTON CROSS */
+/* BUTTON CROSS */
 
 $(document).on('touchstart mouseover', '#cross-menu', function(event){
 
@@ -320,13 +320,13 @@ $(document).on('touchend mouseout', '#cross-menu', function(event){
 
 /* MENU SIDE CLOSE */
 
-var MENUSIDECLOSE = document.getElementById('cross-menu');
+const MENUSIDECLOSE = document.getElementById('cross-menu');
 
 MENUSIDECLOSE.addEventListener('click', function() {
 			   $("#main-container-menu").stop().animate({'left':'-100%'},300);
 });
 
-/* BOUTON MENU ARROW-2 */
+/* BUTTON MENU ARROW-2 */
 
 $(document).on('touchstart mouseover', '#wrapper-title-2', function(event){
 
@@ -356,7 +356,7 @@ $(document).on('touchend mouseout', '#wrapper-title-2', function(event){
         }
 });
 
-/* BOUTON MENU ARROW-3 */
+/* BUTTON MENU ARROW-3 */
 
 $(document).on('touchstart mouseover', '#wrapper-title-3', function(event){
 
@@ -386,7 +386,7 @@ $(document).on('touchend mouseout', '#wrapper-title-3', function(event){
         }
 });
 
-/* BOUTON MENU */
+/* BUTTON MENU */
 
 $(document).on('touchstart mouseover', '#stripes', function(event){
 
@@ -416,7 +416,7 @@ $(document).on('touchend mouseout', '#stripes', function(event){
         }
 });
 
-/* BOUTON NEXT */
+/* BUTTON NEXT */
 
 $(document).on('touchstart mouseover', '#oldnew-next', function(event){
 
@@ -446,7 +446,7 @@ $(document).on('touchend mouseout', '#oldnew-next', function(event){
         }
 });
 
-/* BOUTON PREV */
+/* BUTTON PREV */
 
 $(document).on('touchstart mouseover', '#oldnew-prev', function(event){
 
@@ -477,7 +477,7 @@ $(document).on('touchend mouseout', '#oldnew-prev', function(event){
 });
 
 
-/*FORMULAIRE NEWSLETTER*/
+/*FORMULATE NEWSLETTER*/
 
 $("form").on("submit", function(event) {
   event.preventDefault();
@@ -489,26 +489,26 @@ $("form").on("submit", function(event) {
 
 function preloader() {
 	if (document.images) {
-		var img1 = new Image();
-		var img2 = new Image();
-		var img3 = new Image();
-		var img4 = new Image();
-		var img5 = new Image();
-		var img6 = new Image();
-		var img7 = new Image();
-		var img8 = new Image();
-		var img9 = new Image();
-		var img10 = new Image();
-		var img11 = new Image();
-		var img12 = new Image();
-		var img13 = new Image();
-		var img14 = new Image();
-		var img15 = new Image();
-		var img16 = new Image();
-		var img17 = new Image();
-		var img18 = new Image();
-		var img19 = new Image();
-		var img20 = new Image();
+		const img1 = new Image();
+		const img2 = new Image();
+		const img3 = new Image();
+		const img4 = new Image();
+		const img5 = new Image();
+		const img6 = new Image();
+		const img7 = new Image();
+		const img8 = new Image();
+		const img9 = new Image();
+		const img10 = new Image();
+		const img11 = new Image();
+		const img12 = new Image();
+		const img13 = new Image();
+		const img14 = new Image();
+		const img15 = new Image();
+		const img16 = new Image();
+		const img17 = new Image();
+		const img18 = new Image();
+		const img19 = new Image();
+		const img20 = new Image();
 
 		img1.src = "img/psd-4.jpg";
 		img2.src = "img/font-1.jpg";
@@ -533,7 +533,7 @@ function preloader() {
 	}
 }
 function addLoadEvent(func) {
-	var oldonload = window.onload;
+	const oldonload = window.onload;
 	if (typeof window.onload != 'function') {
 		window.onload = func;
 	} else {

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?php
 require "global.php"; require "connect.php";
 $result = $_POST['search'];

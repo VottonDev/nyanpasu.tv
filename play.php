@@ -14,7 +14,7 @@ while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
 }
 ?>
 <!DOCTYPE html>
-<html style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?php require "global.php"; ?>
 
 <title>Nyanpasu Anime Streaming</title>

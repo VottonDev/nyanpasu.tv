@@ -82,13 +82,13 @@
 
 
 <?php
-	$getlatest = $conn->prepare("SELECT *
+    $getlatest = $conn->prepare("SELECT *
 FROM series
 ORDER BY 'id' ASC
 LIMIT 20");
-	$getlatest->execute();
-	while ($gl = $getlatest->fetch(PDO::FETCH_ASSOC)) {
-?>
+    $getlatest->execute();
+    while ($gl = $getlatest->fetch(PDO::FETCH_ASSOC)) {
+        ?>
 						<figure class="white">
 							<a>
 								<img src="<?php echo $gl['thumb']; ?>" alt="" width="225" height="143">
@@ -104,7 +104,8 @@ LIMIT 20");
 							</div>
 							</a>
                         </figure>
-<?php } ?>
+<?php
+    } ?>
 
 
 

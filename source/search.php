@@ -85,9 +85,9 @@ $result = $_POST['search'];
 
 
 <?php
-    $getsearch = $conn->prepare("SELECT * 
+    $getsearch = $conn->prepare("SELECT *
 FROM series WHERE name LIKE :result
-ORDER BY 'id' ASC 
+ORDER BY 'id' ASC
 LIMIT 10");
     $getsearch->bindParam(":result", $result);
     $getsearch->execute();

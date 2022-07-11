@@ -70,22 +70,20 @@
 					<section class="work">
 
 <?php
-						require "connect.php";
-					      $category3 = $_GET['category'];
+                        require "connect.php";
+                          $category3 = $_GET['category'];
                           $category2 = str_replace("%20", "", $category3);
                           $category = str_replace(" ", '', $category2);
-					      $series = $_GET['series'];
+                          $series = $_GET['series'];
 
-					      $getvars = $conn->prepare("SELECT * FROM series WHERE category=:category");
-					      $getvars->bindParam(":category", $category);
-					      $getvars->execute();
-						  if(!isset($_GET['series'])) {
-					      while ($disp = $getvars->fetch(PDO::FETCH_ASSOC)){
-					      $thumb = $disp['thumb'];
-					      $name = $disp['name'];
-					      $desc = $disp['description'];
-
-?>
+                          $getvars = $conn->prepare("SELECT * FROM series WHERE category=:category");
+                          $getvars->bindParam(":category", $category);
+                          $getvars->execute();
+                          if (!isset($_GET['series'])) {
+                              while ($disp = $getvars->fetch(PDO::FETCH_ASSOC)) {
+                                  $thumb = $disp['thumb'];
+                                  $name = $disp['name'];
+                                  $desc = $disp['description']; ?>
 
 								<figure class="white">
 									<a href="<?php echo 'shows.php?category=' . $category . '&series=' . $disp['name']; ?>">
@@ -100,16 +98,16 @@
 										<div id="part-info"><?php echo $name; ?></div>
 									</div>
 								</figure>
-							<?php } } else {
+							<?php
+                              }
+                          } else {
+                              $getvars2 = $conn->prepare("SELECT * FROM anime WHERE series=:series");
+                              $getvars2->bindParam(":series", $series);
+                              $getvars2->execute();
 
-					      $getvars2 = $conn->prepare("SELECT * FROM anime WHERE series=:series");
-					      $getvars2->bindParam(":series", $series);
-					      $getvars2->execute();
-
-					      while ($disp2 = $getvars2->fetch(PDO::FETCH_ASSOC)) {
-					      	$getseries = $_GET['series'];
-					      	$getcategory = $_GET['category'];
-?>
+                              while ($disp2 = $getvars2->fetch(PDO::FETCH_ASSOC)) {
+                                  $getseries = $_GET['series'];
+                                  $getcategory = $_GET['category']; ?>
 								<figure class="white">
 									<a href="<?php echo 'play.php?category=' . $getcategory . '&series=' . $getseries . '&show=' . $disp2['title']; ?>">
 										<img src="<?php echo $disp2['thumb_url']; ?>" alt=""></img>
@@ -124,8 +122,9 @@
 									</div>
 								</figure>
 <?php
-} }
-							?>
+                              }
+                          }
+                            ?>
 
 
 						</figure>

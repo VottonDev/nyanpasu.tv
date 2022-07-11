@@ -93,7 +93,7 @@ LIMIT 10");
     $getsearch->bindParam(":result", $result2);
     $getsearch->execute();
     while ($gs = $getsearch->fetch(PDO::FETCH_ASSOC)) {
-?>
+        ?>
                         <figure class="white">
                             <a>
                                 <img src="<?php echo $gs['thumb']; ?>" alt="" width="225" height="143">
@@ -109,7 +109,8 @@ LIMIT 10");
                             </div>
                             </a>
                         </figure>
-<?php } ?>
+<?php
+    } ?>
 
 
 

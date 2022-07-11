@@ -6,15 +6,15 @@ $getlink = $conn->prepare("SELECT * FROM anime WHERE title=:vidname");
 $getlink->bindParam(":vidname", $video_name);
 $getlink->execute();
 
-while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)){
-  $path = $res1['path'];
-  $title = $res1['title'];
-  $series = $_GET['series'];
-  $category = $_GET['category'];
+while ($res1 = $getlink->fetch(PDO::FETCH_ASSOC)) {
+    $path = $res1['path'];
+    $title = $res1['title'];
+    $series = $_GET['series'];
+    $category = $_GET['category'];
 }
 ?>
 <!DOCTYPE html>
-<html style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en" style="display: block;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <?php require "global.php"; ?>
 
 <title>Nyanpasu Anime Streaming</title>
